@@ -3,9 +3,13 @@ import App from "./App.vue";
 import router from "./router";
 import firebase from "firebase";
 import Buefy from "buefy";
+import VeeValidate from "vee-validate";
 
 Vue.config.productionTip = false;
 Vue.use(Buefy);
+Vue.use(VeeValidate, {
+  events: "change|blur|xxx"
+});
 let app = "";
 
 // Initialize Firebase
