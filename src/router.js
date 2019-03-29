@@ -6,6 +6,7 @@ import Home from "@/views/Home";
 import Login from "@/views/Login";
 import SignUp from "@/views/SignUp";
 import notFound from "@/views/notFound";
+import MyAccount from "@/components/home/MyAccount";
 
 Vue.use(Router);
 
@@ -22,8 +23,8 @@ const router = new Router({
       component: notFound
     },
     {
-      path: "/",
-      redirect: "/login"
+      path: "/home",
+      redirect: "/"
     },
     {
       path: "/login",
@@ -36,9 +37,17 @@ const router = new Router({
       component: SignUp
     },
     {
-      path: "/home",
-      name: "Home",
+      path: "/",
+      name: "home",
       component: Home,
+      children: [
+        {
+          // UserProfile will be rendered inside User's <router-view>
+          // when /user/:id/profile is matched
+          path: "myaccount",
+          component: MyAccount
+        }
+      ],
       meta: {
         requiresAuth: true
       }

@@ -29,7 +29,7 @@ export default {
         .then(
           user => {
             console.log(user);
-            this.$router.replace("home");
+            this.$router.replace("/");
           },
           err => {
             alert("Oops. " + err.message);
